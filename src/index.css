@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 10% 96%;
+    --foreground: 220 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 12%;
+
+    --primary: 220 65% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 8% 88%;
+    --secondary-foreground: 220 15% 20%;
+
+    --muted: 220 8% 92%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 0 72% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 10% 82%;
+    --input: 220 10% 82%;
+    --ring: 220 65% 38%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 220 10% 96%;
+    --sidebar-foreground: 220 15% 12%;
+    --sidebar-primary: 220 65% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 8% 88%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 220 10% 82%;
+    --sidebar-ring: 220 65% 38%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  code, .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+/* Corporate card */
+.corp-card {
+  background: hsl(0, 0%, 100%);
+  border: 1px solid hsl(220, 10%, 82%);
+  box-shadow: 0 1px 3px hsla(220, 15%, 12%, 0.06);
+  transition: box-shadow 0.2s;
+}
+
+.corp-card:hover {
+  box-shadow: 0 4px 12px hsla(220, 15%, 12%, 0.1);
+}
+
+/* Corp input */
+.corp-input {
+  background: hsl(0, 0%, 100%);
+  border: 1px solid hsl(220, 10%, 82%);
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.corp-input:focus {
+  outline: none;
+  border-color: hsl(220, 65%, 38%);
+  box-shadow: 0 0 0 2px hsla(220, 65%, 38%, 0.15);
+}
+
+.corp-input.error {
+  border-color: hsl(0, 72%, 50%);
+  box-shadow: 0 0 0 2px hsla(0, 72%, 50%, 0.1);
+}
+
+/* Corp button */
+.corp-btn {
+  background: hsl(220, 65%, 38%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+}
+
+.corp-btn:hover {
+  background: hsl(220, 65%, 32%);
+}
+
+.corp-btn-danger {
+  background: hsl(0, 72%, 50%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+}
+
+.corp-btn-danger:hover {
+  background: hsl(0, 72%, 44%);
+}
+
+.corp-btn-outline {
+  background: transparent;
+  color: hsl(220, 65%, 38%);
+  border: 1px solid hsl(220, 65%, 38%);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+
+.corp-btn-outline:hover {
+  background: hsl(220, 65%, 38%);
+  color: white;
+}
+
+/* Corp table */
+.corp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.corp-table th {
+  background: hsl(220, 15%, 12%);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.corp-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid hsl(220, 10%, 90%);
+}
+
+.corp-table tr:hover td {
+  background: hsl(220, 10%, 97%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(220, 10%, 94%); }
+::-webkit-scrollbar-thumb { background: hsl(220, 10%, 72%); }
+
+/* Field error */
+.field-error {
+  color: hsl(0, 72%, 50%);
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Status indicator */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.active { background: hsl(140, 60%, 42%); }
+.status-dot.warning { background: hsl(40, 90%, 50%); }
+.status-dot.danger { background: hsl(0, 72%, 50%); }
